@@ -1,9 +1,10 @@
-import Image from "next/image";
 
+//@ts-nocheck
 export default function Home() {
   return (
     <div>
-      <h1>Hi</h1>
+      <h1>Hello</h1>
     </div>
+    
   );
 }
