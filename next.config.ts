@@ -1,7 +1,15 @@
-import type { NextConfig } from "next";
+import path from 'path';
 
-const nextConfig: NextConfig = {
-  /* config options here */
+module.exports = {
+  webpack: (config: { watchOptions: { ignored: any[]; }; }, { isServer }: any) => {
+    if (!isServer) {
+      config.watchOptions = {
+        ignored: [
+          path.resolve(__dirname, 'node_modules'),
+          path.resolve(__dirname, '.next'),
+        ],
+      };
+    }
+    return config;
+  },
 };
-
-export default nextConfig;
